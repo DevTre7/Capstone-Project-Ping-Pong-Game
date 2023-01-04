@@ -1,0 +1,216 @@
+/* *, *::after, *::before {
+    box-sizing: border-box;
+} */
+
+/* body{
+    margin: 0;
+    padding: 0;
+} */
+
+h1 {
+  text-align: center;
+  padding-top: 5%;
+  padding-left: 23%;
+
+  font-family: "Odibee Sans";
+  letter-spacing: 6px;
+  font-size: 4vw;
+  color: white;
+}
+
+.playButton {
+  font-family: "Sedgwick Ave Display";
+  font-size: 25px;
+  font-style: Bold;
+  height: 100px;
+  width: 300px;
+  position: relative;
+  top: 150px;
+  right: 150px;
+  color: #144d47;
+  background-color: azure;
+  border-radius: 10px;
+  border-color: #e5dae8;
+}
+
+@keyframes bgAnimatedGradient {
+  0% {
+    background-position: 0 85%;
+  }
+  50% {
+    background-position: 100% 20%;
+  }
+  100% {
+    background-position: 0% 85%;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(110, 155, 141);
+  height: 100vh;
+  background-image: linear-gradient(60deg, #ff6596, #60bef8, #d88cff);
+  background-size: 600% 600%;
+  animation: bgAnimatedGradient 15s infinite linear;
+  margin: 0;
+}
+
+.menu-box-border {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 10px;
+  background: linear-gradient(
+    90deg,
+    rgba(23, 175, 185, 100%) 0%,
+    rgba(140, 26, 190, 100%) 100%
+  );
+}
+
+/* Special features for Game Start Menu: *******************************************************/
+
+.menu-box {
+  width: 400px;
+  height: 300px;
+  position: relative;
+  display: flex;
+  border-radius: 10px;
+  border: 4px solid #ffffff;
+}
+
+span {
+  position: absolute;
+  border-radius: 30px;
+}
+
+.top {
+  width: 0px;
+  height: 15px;
+  top: 0;
+  left: 0;
+  background: linear-gradient(90deg, transparent 10%, #6cff52, #39ff14);
+}
+
+.right {
+  width: 15px;
+  height: 0px;
+  top: 0;
+  right: 0;
+  background: linear-gradient(180deg, transparent 10%, #67fff2, #00ffea);
+}
+
+.bottom {
+  height: 15px;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, #ff51f3, #ff00ee, transparent 90%);
+}
+
+.left {
+  width: 15px;
+  height: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, #ffff33, #ffff00, transparent 90%);
+}
+
+.top {
+  animation: topAnimation 3s ease-in-out infinite;
+}
+.right {
+  animation: rightAnimation 3s ease-in-out infinite;
+}
+.bottom {
+  animation: bottomAnimation 3s ease-in-out infinite;
+}
+.left {
+  animation: leftAnimation 3s ease-in-out infinite;
+}
+
+@keyframes topAnimation {
+  25% {
+    width: 100%;
+    opacity: 1;
+  }
+  30%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes rightAnimation {
+  0%,
+  25% {
+    height: 0;
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+    height: 100%;
+  }
+  55%,
+  100% {
+    height: 100%;
+    opacity: 0;
+  }
+}
+
+@keyframes bottomAnimation {
+  0%,
+  50% {
+    opacity: 0;
+    width: 0;
+  }
+  75% {
+    opacity: 1;
+    width: 100%;
+  }
+  76%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes leftAnimation {
+  0%,
+  75% {
+    opacity: 0;
+    bottom: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: 100%;
+  }
+}
+/* Special features for Game Start Menu --End-- *******************************************************/
+
+/* Game Arena:  **************************************************************************************/
+
+.table {
+  top: 50%;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 10px;
+  display: none;
+  height: 770px;
+  width: 1300px;
+  border: black solid 2px;
+}
+
+.paddle {
+  position: absolute;
+}
+
+.paddle.left {
+  left: 1vw;
+}
+
+.paddle.right {
+  right: 1vw;
+}

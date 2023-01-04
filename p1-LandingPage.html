@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PingPongGame</title>
+    <link href="<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Sedgwick+Ave+Display&display=swap" rel="stylesheet">  
+    <link rel="stylesheet" href="style.css">
+      
+</head>
+
+<body>
+    <div class ="menu-box-border">
+        <div class ="menu-box">
+         <!--Game Home Page:-->
+         <h1>PingPong</h1>
+         <!--Game Home Page:-->
+         <a href="/LandingPage.html"></a>
+         <a href="/GameStartPage.html"></a>
+
+         <!--Animated Gradient Border for Game Start Menu: -->
+         <span class ="top"></span>
+         <span class ="right"></span>
+         <span class ="bottom"></span>
+         <span class ="left"></span>
+
+            <!-- Button & Button Classes: -->
+         <button type="button" onclick="launchGame()" class="playButton">
+            <p >Let's Play</p>
+            <!--game-icon-->
+            <ion-icon name="game-controller-outline"></ion-icon> 
+         </button>
+
+        </div>
+    </div>
+
+    <!--Game Arena:-->
+      <div class="table">
+         <!--Game Score Board: between user(player1) and computer: -->
+            <div class= "scoreBoard"> 
+               <div id="player1-score">0</div>
+               <div id="computer_score">0</div>
+            </div>
+            <!--PingPong Ball: -->
+            <div class="ball" id="ball "></div>
+            <!--Left Paddle-->
+            <div class="paddle left" id="player1-paddle"></div>
+            <!--Right Paddle-->
+            <div class="paddle right" id="computer-paddle"></div>
+      </div>   
+
+         <script>
+            
+            function launchGame(){
+               console.log("Hello");
+               let main_menu = document.querySelector(".menu-box-border");
+               let table = document.querySelector(".table")
+               main_menu.style.display = "none";
+               table.style.display = "inline-block";
+            }
+            
+         </script>
+   <!--Script Tag for Game Icon for "Let's Play Button"-->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <!--Script Tag for Game.js-->
+    <script src="game.js" type="module"></script>
+</body>
+</html>
