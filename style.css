@@ -64,6 +64,7 @@ body {
   background-size: 600% 600%;
   animation: bgAnimatedGradient 15s infinite linear;
   margin: 0;
+  overflow: hidden;
 }
 
 .menu-box-border {
