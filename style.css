@@ -1,7 +1,8 @@
 /* *, *::after, *::before {
     box-sizing: border-box;
 } */
-
+ /* LIKELY WILL DELETE THESE COMMENTED OUT LINES OF CODE AFTER
+ PROJECT IS COMPLETED!!! */
 /* body{
     margin: 0;
     padding: 0;
@@ -50,6 +51,12 @@ h1 {
   padding: 0;
 }
 
+:root{
+    --hue: 207;
+    --saturation: 50%;
+    --foreground-color: hsl(var(--hue), var(--saturation), 47%)
+}
+
 body {
   background-color: rgb(110, 155, 141);
   height: 100vh;
@@ -88,7 +95,7 @@ span {
   border-radius: 30px;
 }
 
-.top {
+.top-border {
   width: 0px;
   height: 15px;
   top: 0;
@@ -96,7 +103,7 @@ span {
   background: linear-gradient(90deg, transparent 10%, #6cff52, #39ff14);
 }
 
-.right {
+.right-border {
   width: 15px;
   height: 0px;
   top: 0;
@@ -104,30 +111,30 @@ span {
   background: linear-gradient(180deg, transparent 10%, #67fff2, #00ffea);
 }
 
-.bottom {
+.bottom-border {
   height: 15px;
   right: 0;
   bottom: 0;
   background: linear-gradient(90deg, #ff51f3, #ff00ee, transparent 90%);
 }
 
-.left {
+.left-border {
   width: 15px;
   height: 0;
   bottom: 0;
   background: linear-gradient(180deg, #ffff33, #ffff00, transparent 90%);
 }
 
-.top {
+.top-border {
   animation: topAnimation 3s ease-in-out infinite;
 }
-.right {
+.right-border {
   animation: rightAnimation 3s ease-in-out infinite;
 }
-.bottom {
+.bottom-border {
   animation: bottomAnimation 3s ease-in-out infinite;
 }
-.left {
+.left-border {
   animation: leftAnimation 3s ease-in-out infinite;
 }
 
@@ -196,21 +203,68 @@ span {
   left: 50%;
   position: absolute;
   transform: translateX(-50%) translateY(-50%);
-  border-radius: 10px;
+  border-radius: 4vh;
   display: none;
-  height: 770px;
-  width: 1300px;
+  height: 95vh;
+  width: 170vh;
   border: black solid 2px;
 }
 
 .paddle {
+  --positon: 45;
+
   position: absolute;
+  background-color: var(--foreground-color);
+  top: calc(var(--positon)* 1vh);
+  transform: translateY(-50%);
+  width: 1vh;
+  height: 10vh;
 }
 
 .paddle.left {
   left: 1vw;
+  border-radius: 1vh;
 }
 
 .paddle.right {
   right: 1vw;
+  border-radius: 1vh;
+
+}
+
+.ball {
+    --x: 85;
+    --y: 45;
+
+    position: absolute;
+    background-color: var(--foreground-color);
+    left: calc(var(--x)* 1vh);
+    top: calc(var(--y)* 1vh);
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    width: 2.5vh;
+    height: 2.5vh;
+}
+
+.scoreBoard {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 7vh;
+    color: var(--hue);
+}
+
+.scoreBoard > * {
+    flex-grow: 1;
+    flex-basis: 0;
+    padding: 0 2vh;
+    margin: 1vh 0;
+    opacity: 0.5;
+}
+
+.scoreBoard > :first-child {
+    text-align: right;
+    border-right: 0.5vh solid var(--foreground-color);
+    
+
 }
