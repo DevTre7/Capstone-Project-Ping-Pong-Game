@@ -208,15 +208,16 @@ span {
   display: none;
   height: 95vh;
   width: 170vh;
-  border: black solid 2px;
+  /* Can add the "border" back once code is working properly */
+  /* border: black solid 2px; */
 }
 
 .paddle {
-  --positon: 45;
+  --position: 50;
 
   position: absolute;
   background-color: var(--foreground-color);
-  top: calc(var(--positon)* 1vh);
+  top: calc(var(--position) * 1vh);
   transform: translateY(-50%);
   width: 1vh;
   height: 10vh;
@@ -230,7 +231,6 @@ span {
 .paddle.right {
   right: 1vw;
   border-radius: 1vh;
-
 }
 
 .ball {

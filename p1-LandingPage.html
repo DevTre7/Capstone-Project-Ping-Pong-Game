@@ -38,7 +38,7 @@
         <span class="left-border"></span>
 
         <!-- Button & Button Classes: -->
-        <button type="button" onclick="launchGame()" class="playButton">
+        <button type="button" class="playButton">
           <p>Let's Play</p>
           <!--game-icon-->
           <ion-icon name="game-controller-outline"></ion-icon>
@@ -61,15 +61,7 @@
       <div class="paddle right" id="computer-paddle"></div>
     </div>
 
-    <script>
-      function launchGame() {
-        console.log("Hello");
-        let main_menu = document.querySelector(".menu-box-border");
-        let table = document.querySelector(".table");
-        main_menu.style.display = "none";
-        table.style.display = "inline-block";
-      }
-    </script>
+
     <!--Script Tag for Game Icon for "Let's Play Button"-->
     <script
       type="module"
