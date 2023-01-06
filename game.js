@@ -26,7 +26,12 @@ function update(time) {
     //This "setProperty" allows the both paddles to change their "hue" color as time passes, relative to the launch of the game.
     document.documentElement.style.setProperty("--hue", hue + delta * 0.01);
 
-    if (isLose()) handleLose();
+    if (isLose()) {
+      let winner = handleLose();
+      console.log("someone lost");
+      ball.reset();
+      computerPaddle.reset();
+    }
   }
 
   lastTime = time;
@@ -38,19 +43,23 @@ function isLose() {
   const rect = ball.rect();
   return rect.right >= window.innerWidth || rect.left <= 0;
 }
-
 //This function is for incrementing either the Player1 or the Computer Score based off when ball passes by either side's paddle (player1's or computer's)
 function handleLose() {
   const rect = ball.rect();
   if (rect.right >= window.innerWidth) {
     playerScoreElem.textContent = parseInt(playerScoreElem.textContent) + 1;
+    //The winnerDeclared function is called to display the popUp window dependent on whether player1 wins the game.
+    winnerDeclared(playerScoreElem.textContent, computerScoreElem.textContent);
     console.log("player wins");
+    return 1;
   } else if (rect.left <= 0) {
     computerScoreElem.textContent = parseInt(computerScoreElem.textContent) + 1;
+    //The winnerDeclared function is called to display the popUp window dependent on whether the computer wins the game.
+    winnerDeclared(playerScoreElem.textContent, computerScoreElem.textContent);
+
     console.log("computer wins");
+    return 0;
   }
-  ball.reset();
-  computerPaddle.reset();
 }
 
 //This eventListener helps determine the position of paddle within the window (game arena) of the game
@@ -58,6 +67,7 @@ document.addEventListener("mousemove", (e) => {
   player1Paddle.position = (e.y / window.innerHeight) * 100;
 });
 
+//This "launchGame" function will display the actual game arena, as soon as the "playButton" ('Let's Play') is clicked on, hence the addtion of the "playButton.addEventListener" right outside the function itself.
 function launchGame() {
   console.log("Hello");
   let main_menu = document.querySelector(".menu-box-border");
@@ -67,5 +77,33 @@ function launchGame() {
 
   window.requestAnimationFrame(update);
 }
-
 playButton.addEventListener("click", launchGame);
+//^When this "playButton.addEventListener" variable is invoked it will call the "launchGame" by the action of a "click" input
+
+//This function will display the winner of the game up until a certain score threshold. In this case the score threshold is up to 5 points
+function winnerDeclared(playerScore, computerScore) {
+  let playerScoreResults = +playerScore;
+  let computerScoreResults = +computerScore;
+  let highScore = 5;
+  if (playerScoreResults >= highScore) {
+    //This is the message that will be displayed in the "alert" popup window if the "player1" user wins
+    alert("Player 1 Wins");
+    playerScoreElem.textContent = 0;
+    computerScoreElem.textContent = 0;
+    window.location.href = "./p1-LandingPage.html";
+  } else if (computerScoreResults >= highScore) {
+    //This is the message that will be displayed in the "alert" popup window if the "computer" user/ paddle wins
+    alert("Computer Wins");
+    playerScoreElem.textContent = 0;
+    computerScoreElem.textContent = 0;
+    //This will go straight to the lanfing page, hence the begining the of the webpage
+    window.location.href = "./p1-LandingPage.html";
+  } else {
+    if (Math.max(playerScoreResults, computerScoreResults) === highScore) {
+      //This will go straight to the lanfing page, hence the begining the of the webpage
+      window.location.href = "./p1-LandingPage.html";
+    } else {
+      playButton.click();
+    }
+  }
+}

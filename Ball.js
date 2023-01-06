@@ -45,6 +45,8 @@ export default class Ball {
       this.direction = { x: Math.cos(heading), y: Math.sin(heading) };
     }
 
+    console.log("ball reset");
+
     this.velocity = INITIAL_VELOCITY;
   }
 
