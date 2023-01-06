@@ -1,5 +1,7 @@
+//This variable is the initial velocity/or starting speed of the ball
 const INITIAL_VELOCITY = 0.025;
-const VELOCITY_INCREASE = 0.00001;
+//This variable is the increment value of the velocity/or speed of the ball as time passes
+const VELOCITY_INCREASE = 0.000004;
 
 export default class Ball {
   constructor(ballElem) {
@@ -59,7 +61,7 @@ export default class Ball {
     }
 
     // The If statement allows the ball to bounce back from the right or left sides of our "rect" hence the "direction.x" (x-axis)
-    //The function  loops through all through all the "paddle.rect"s (which is the '.' property of both individual paddle), and 
+    //The function  loops through all through all the "paddle.rect"s (which is the '.' property of both individual paddle), and
     //if any individual paddle returns "true" for the collision function, then it will return true for the whole board
     if (paddleRects.some((r) => isCollision(r, rect))) {
       this.direction.x *= -1;

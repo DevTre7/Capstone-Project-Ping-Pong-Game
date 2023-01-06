@@ -1,7 +1,7 @@
 /* *, *::after, *::before {
     box-sizing: border-box;
 } */
- /* LIKELY WILL DELETE THESE COMMENTED OUT LINES OF CODE AFTER
+/* LIKELY WILL DELETE THESE COMMENTED OUT LINES OF CODE AFTER
  PROJECT IS COMPLETED!!! */
 /* body{
     margin: 0;
@@ -51,10 +51,10 @@ h1 {
   padding: 0;
 }
 
-:root{
-    --hue: 207;
-    --saturation: 50%;
-    --foreground-color: hsl(var(--hue), var(--saturation), 47%)
+:root {
+  --hue: 220;
+  --saturation: 30%;
+  --foreground-color: hsl(var(--hue), var(--saturation), 47%);
 }
 
 body {
@@ -208,8 +208,8 @@ span {
   display: none;
   height: 95vh;
   width: 170vh;
-  /* Can add the "border" back once code is working properly */
-  /* border: black solid 2px; */
+  /* This "boarder" aspect for the the "table" class is purely for aesthics */
+  border: black solid 2px;
 }
 
 .paddle {
@@ -234,38 +234,36 @@ span {
 }
 
 .ball {
-    --x: 85;
-    --y: 45;
+  --x: 85;
+  --y: 45;
 
-    position: absolute;
-    background-color: var(--foreground-color);
-    left: calc(var(--x)* 1vh);
-    top: calc(var(--y)* 1vh);
-    transform: translate(-50%, -50%);
-    border-radius: 50%;
-    width: 2.5vh;
-    height: 2.5vh;
+  position: absolute;
+  background-color: var(--foreground-color);
+  left: calc(var(--x) * 1vh);
+  top: calc(var(--y) * 1vh);
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  width: 2.5vh;
+  height: 2.5vh;
 }
 
 .scoreBoard {
-    display: flex;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 7vh;
-    color: var(--hue);
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 7vh;
+  color: var(--hue);
 }
 
 .scoreBoard > * {
-    flex-grow: 1;
-    flex-basis: 0;
-    padding: 0 2vh;
-    margin: 1vh 0;
-    opacity: 0.5;
+  flex-grow: 1;
+  flex-basis: 0;
+  padding: 0 2vh;
+  margin: 1vh 0;
+  opacity: 0.5;
 }
 
 .scoreBoard > :first-child {
-    text-align: right;
-    border-right: 0.5vh solid var(--foreground-color);
-    
-
+  text-align: right;
+  border-right: 0.5vh solid var(--foreground-color);
 }
