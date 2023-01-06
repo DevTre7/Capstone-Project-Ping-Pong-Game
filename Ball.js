@@ -1,5 +1,5 @@
 //This variable is the initial velocity/or starting speed of the ball
-const INITIAL_VELOCITY = 0.025;
+const INITIAL_VELOCITY = 0.05;
 //This variable is the increment value of the velocity/or speed of the ball as time passes
 const VELOCITY_INCREASE = 0.000004;
 
