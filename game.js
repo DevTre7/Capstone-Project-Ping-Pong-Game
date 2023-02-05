@@ -80,24 +80,44 @@ function launchGame() {
 playButton.addEventListener("click", launchGame);
 //^When this "playButton.addEventListener" variable is invoked it will call the "launchGame" by the action of a "click" input
 
+//The player's name that's inputed by the user
+let userName;
+//Create
+let playerFinalScore;
+let computerFinalScore;
+
 //This function will display the winner of the game up until a certain score threshold. In this case the score threshold is up to 5 points
 function winnerDeclared(playerScore, computerScore) {
   let playerScoreResults = +playerScore;
   let computerScoreResults = +computerScore;
   let highScore = 5;
   if (playerScoreResults >= highScore) {
+    userName = prompt("Enter your name?");
+
+    playerFinalScore = parseInt(playerScoreElem.textContent);
+    computerFinalScore = parseInt(computerScoreElem.textContent);
+
+    handleAddData(userName, playerFinalScore, computerFinalScore);
+
     //This is the message that will be displayed in the "alert" popup window if the "player1" user wins
     alert("Player 1 Wins");
+
     playerScoreElem.textContent = 0;
     computerScoreElem.textContent = 0;
     window.location.href = "./p1-LandingPage.html";
   } else if (computerScoreResults >= highScore) {
+    playerFinalScore = parseInt(playerScoreElem.textContent);
+    computerFinalScore = parseInt(computerScoreElem.textContent);
+
+    handleAddData("computer", playerFinalScore, computerFinalScore);
+
     //This is the message that will be displayed in the "alert" popup window if the "computer" user/ paddle wins
     alert("Computer Wins");
+
     playerScoreElem.textContent = 0;
     computerScoreElem.textContent = 0;
     //This will go straight to the lanfing page, hence the begining the of the webpage
-    window.location.href = "./p1-LandingPage.html";
+    // window.location.href = "./p1-LandingPage.html";
   } else {
     if (Math.max(playerScoreResults, computerScoreResults) === highScore) {
       //This will go straight to the lanfing page, hence the begining the of the webpage
@@ -107,3 +127,24 @@ function winnerDeclared(playerScore, computerScore) {
     }
   }
 }
+
+let handleAddData = (username, playerpoints, computerpoints) => {
+  let winby_points = playerpoints - computerpoints;
+  console.log("Submit");
+
+  axios
+    .post("http://localhost:4000/addpoints", {
+      username: username,
+      playerpoints: playerpoints,
+      computerpoints: computerpoints,
+      winby_points: winby_points,
+    })
+    .catch((error) => console.log(error));
+};
+
+// fetch("http://localhost:4000/addpoints", {
+//   username: "Micj",
+//   playerpoints: 7,
+//   computerpoints: 5,
+//   winby_points: 2,
+// }).catch((error) => console.log(error));
