@@ -1,0 +1,8 @@
+.container div {
+  padding: 20px;
+  display: flex;
+}
+
+.container div span {
+  margin: 10px;
+}

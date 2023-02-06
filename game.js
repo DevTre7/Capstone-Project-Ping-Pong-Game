@@ -117,7 +117,7 @@ function winnerDeclared(playerScore, computerScore) {
     playerScoreElem.textContent = 0;
     computerScoreElem.textContent = 0;
     //This will go straight to the lanfing page, hence the begining the of the webpage
-    // window.location.href = "./p1-LandingPage.html";
+    window.location.href = "./p1-LandingPage.html";
   } else {
     if (Math.max(playerScoreResults, computerScoreResults) === highScore) {
       //This will go straight to the lanfing page, hence the begining the of the webpage
@@ -132,6 +132,7 @@ let handleAddData = (username, playerpoints, computerpoints) => {
   let winby_points = playerpoints - computerpoints;
   console.log("Submit");
 
+  //
   axios
     .post("http://localhost:4000/addpoints", {
       username: username,
@@ -142,9 +143,3 @@ let handleAddData = (username, playerpoints, computerpoints) => {
     .catch((error) => console.log(error));
 };
 
-// fetch("http://localhost:4000/addpoints", {
-//   username: "Micj",
-//   playerpoints: 7,
-//   computerpoints: 5,
-//   winby_points: 2,
-// }).catch((error) => console.log(error));
